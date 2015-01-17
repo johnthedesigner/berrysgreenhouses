@@ -1,0 +1,505 @@
+/*
+Theme Name: Berry's Theme
+*/
+
+/* TYPOGRAPHY */
+html{
+	font-size:18px;
+	font-family:sans-serif;
+	background:#EEE;
+}
+a{
+	color:#6B6;
+	-webkit-transition:color linear .1s;
+	-moz-transition:color linear .1s;
+	-ms-transition:color linear .1s;
+	-o-transition:color linear .1s;
+	transition:color linear .1s;
+}
+
+/* STRUCTURE */
+body{
+	padding:0;
+	margin:0;
+	background:#EEE;
+}
+#pageWrapper{
+	background:#FFF;
+}
+header{
+	border-bottom:#EEE solid 1px;
+}
+#branding{
+	width:960px;
+	margin:0 auto;
+	padding:0;
+	height:120px;
+	position:relative;
+}
+#berrysLogo{
+	margin:0;
+	padding:0;
+	display:inline;
+}
+#berrysLogo img{
+	width:280px;
+	height:120px;
+	vertical-align:middle;
+}
+#branding p{
+	display:inline;
+	font-family: 'Oswald', sans-serif;
+	font-size:1em;
+	font-weight:normal;
+	color:#777;
+	margin:20px;
+}
+#branding #searchBox{
+	position:absolute;
+	top:50px;
+	right:0;
+	font-size:.75em;
+}
+#branding #searchBox input[type=text]{
+	background-color:#F5F5F5;
+	color:#333;
+	padding:7px 24px 7px 10px;
+	border:none;
+	border-radius:4px;
+}
+#productSearch_submit{
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 24px;
+	height: 30px;
+	background-color:#F5F5F5;
+	background-image: url(/wp-content/themes/berrys_v1/img/search.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	border: none;
+	border-radius:0 4px 4px 0;
+	color: transparent;
+	font-size: .01em;
+}
+.alignleft{
+	float:left;
+	margin:0 20px 10px 0;
+}
+.alignright{
+	float:right;
+	margin:0 0 10px 20px;
+}
+
+/* FOOTER */
+footer{
+	margin:10px 0 50px;
+}
+.footHead{
+	margin-top:22px;
+	font-family:"Fjalla One", sans-serif;
+	font-size:1em;
+	text-transform:uppercase;
+}
+.footNav ul{
+	font-family:"Fjalla One", sans-serif;
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.footNav ul li,.footNav ul li a,.footSubhead{
+	font-family:sans-serif;
+	font-size:12px;
+	line-height:1.5em;
+	color:#666;
+	-webkit-transition:color linear .2s;
+	-moz-transition:color linear .2s;
+	transition:color linear .2s;
+	text-decoration:none;
+}
+.footNav ul li a:hover{
+	color:#222;
+}
+
+/* Social Nav */
+.menu-social-nav-menu-container{
+	background:#444;
+	padding:7px 0;
+	color:#888;
+	font-size:.75em;
+	font-family: 'Fjalla One', sans-serif;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+ul#menu-social-nav-menu{
+	list-style:none;
+	margin:0 auto;
+	padding:0;
+	text-align:right;
+	width:940px;
+}
+ul#menu-social-nav-menu li{
+	display:inline;
+	margin:0;
+	padding:5px;
+	color:#666;
+}
+ul#menu-social-nav-menu li a{
+	color:#999;
+	text-decoration:none;
+}
+ul#menu-social-nav-menu li a:hover{
+	color:#FFF;
+}
+
+/* Main Nav */
+.menu-main-nav-menu-container{
+	background:#6B6;
+	padding:7px 0;
+	color:#FFF;
+	font-size:1em;
+	font-family: 'Oswald', sans-serif;
+	font-weight:300;
+	text-transform:uppercase;
+}
+ul#menu-main-nav-menu{
+	list-style:none;
+	margin:0 auto;
+	padding:0;
+	text-align:left;
+	width:960px;
+}
+ul#menu-main-nav-menu > li{
+	display:inline;
+	position:relative;
+	margin:0;
+	padding:5px;
+	color:#FFF;
+}
+ul#menu-main-nav-menu > li a{
+	color:#E8F3D9;
+	text-decoration:none;
+}
+ul#menu-main-nav-menu > li a:hover,ul#menu-main-nav-menu li.current-menu-item a, ul#menu-main-nav-menu li.current-product-ancestor a{
+	color:#FFF;
+}
+ul#menu-main-nav-menu .sub-menu{
+	position:absolute;
+	list-style:none;
+	top:35px;
+	left:0;
+	padding:5px 0;
+	margin:0;
+	z-index:100;
+	background:#6B6;
+	font-size:1em;
+	text-transform:none;
+	min-width:200px;
+	display:none;
+}
+ul#menu-main-nav-menu >li:hover .sub-menu{
+	display:block;
+}
+ul#menu-main-nav-menu .sub-menu li{
+	padding:0;
+	margin:0;
+}
+ul#menu-main-nav-menu .sub-menu li a{
+	padding:10px;
+	margin:0;
+	line-height:1.25em;
+	display:block;
+}
+
+/* BREADCRUMB */
+#breadcrumb{
+	margin:20px 0;
+}
+#breadcrumb a, #breadcrumb .crumbUnlinked{
+	background:#F5F5F5;
+	font-size:.75em;
+	color:#999;
+	text-decoration:none;
+	padding:5px 10px;
+	margin:0 10px 0 0;
+	-webkit-border-radius:4px 4px 4px 4px;
+	-moz-border-radius:4px 4px 4px 4px;
+	-ms-border-radius:4px 4px 4px 4px;
+	-o-border-radius:4px 4px 4px 4px;
+	border-radius:4px 4px 4px 4px;
+	-webkit-transition:background linear .1s, color linear .1s;
+	-moz-transition:background linear .1s, color linear .1s;
+	transition:background linear .1s, color linear .1s;
+}
+#breadcrumb .crumbUnlinked, #breadcrumb a:hover{
+	background:#6B6;
+	color:#FFF;
+}
+
+/* Home Page Top */
+#homePageDescBanner{
+}
+#homePageDescription{
+	font-family:"Oswald", sans-serif;
+	font-size:16px;
+	font-style:italic;
+	color:#555;
+	text-align:center;
+	text-transform:uppercase;
+	letter-spacing:1px;
+	padding:5px 0;
+	margin:20px 0;
+}
+#homeTop{
+	margin:0 auto;
+	padding:30px 0;
+}
+#homeFeature{
+	width:620px;
+	height:500px;
+	overflow:hidden;
+}
+#homeFeature .flex-next, #homeFeature .flex-prev{
+	height:50px;
+	width:50px;
+	color:transparent;
+	font-size:.01em;
+	display:block;
+	position:absolute;
+	top:235px;
+	left:10px;
+	background-image:url(/wp-content/themes/berrys_v1/img/arrowl.png);
+	background-position:center center;
+	background-repeat:no-repeat;
+	opacity:.4;
+	-webkit-transition:opacity .2s linear;
+	-moz-transition:opacity .2s linear;
+	transition:opacity .2s linear;
+}
+#homeFeature .flex-next{
+	background-image:url(/wp-content/themes/berrys_v1/img/arrowr.png);
+	right:10px;
+	left:auto;
+}
+#homeFeature:hover .flex-next, #homeFeature:hover .flex-prev{
+	opacity:1;
+}
+.homeStory{
+	padding:15px 20px;
+}
+.homeStory h3{
+	margin:0;
+	font-family:"Oswald", sans-serif;
+	font-size:1.25em;
+	text-transform:uppercase;
+	line-height:1.25em;
+}
+.homeStory p, .homeStory a{
+	margin:10px 0;
+	font-size:.75em;
+	line-height:1.25em;
+	text-decoration:none;
+}
+.homeStory:nth-child(1){
+	background:#6B6;
+}
+.homeStory:nth-child(1) h3, .homeStory:nth-child(1) p, .homeStory:nth-child(1) a{
+	color:#FFF;
+}
+
+/* ARCHIVE */
+#archiveBody{
+	padding:10px 0 20px;
+}
+#archiveTitleBlock{
+	margin:0 0 10px;
+}
+#archiveTitle{
+	font-family:"Oswald", sans-serif;
+	text-transform:uppercase;
+	color:#222;
+	margin:0;
+}
+#archiveTitleBlock p{
+	font-family:"Oswald", sans-serif;
+	color:#999;
+	margin:0;
+}
+#archiveProductTable{
+	font-size:.75em;
+}
+#archiveProductTable .archiveTableHeader{
+	font-size:.75em;
+	color:#999;
+	text-transform:uppercase;
+}
+#archiveProductTable .archiveProductTitle a{
+	font-family:"Oswald", sans-serif;
+	font-size:1.5em;
+	line-height:1em;
+	color:#222;
+	text-decoration:none;
+}
+#archiveProductTable .archiveProductTitle a:hover{
+	color:#6B6;
+}
+#archiveProductTable tr:nth-child(even){
+	background:#F5F5F5;
+}
+#archiveProductTable tr.archiveTableRow:hover{
+	background:#EEE;
+}
+#archiveProductTable img{
+	display:block;
+	margin:0;
+	padding:0;
+	padding-bottom:1px;
+}
+.pagination{
+	padding:30px;
+	text-align:center;
+	font-size:12px;
+}
+.pagination .page, .pagination .next, .pagination .prev{
+	background:#BBB;
+	color:#444;
+	border:none;
+	border-radius:5px;
+}
+.pagination .page.current, .pagination .page:hover, .pagination .next:hover, .pagination .prev:hover{
+	background:#6B6;
+	color:#FFF;
+}
+
+/* SEARCH RESULTS */
+#searchTitle{
+	font-family:"Oswald", sans-serif;
+	font-size:1.75em;
+	font-weight:normal;
+	line-height:1;
+	margin:0 10px;
+	color:#333;
+}
+
+/* STATIC PAGE */
+#pageBody{
+	padding:20px 0;	
+}
+
+/* PRODUCT INFO PAGE */
+#productBody{
+	padding:20px 0;
+}
+#productMainColumn .flexslider{
+	height:300px;
+}
+#productMainColumn .flexsliderThumbs ul{
+	list-style:none;
+	margin:10px -20px 20px 0;
+	padding:0;
+}
+#productMainColumn .flexsliderThumbs ul li{
+	margin:0 20px 0 0;
+	float:left;
+}
+#productMainColumn h1{
+	font-family:"Oswald", sans-serif;
+	font-size:1.75em;
+	text-transform:uppercase;
+	margin:0 10px;
+}
+#productDescription{
+	font-size:.75em;
+	color:#444;
+	margin:0 10px 20px;
+}
+#productInfo{
+	font-size:1em;
+}
+#productInfo p{
+	font-size:.75em;
+	margin:10px 0;
+}
+#productInfo tr:nth-child(odd){
+	background:#F5F5F5;
+}
+#productInfo .productInfoTitle{
+	font-family:"Oswald", sans-serif;
+	font-size:.8em;
+	color:#6B6;
+	width:80px;
+	padding:8px 10px;
+}
+#productInfo #productTags a{
+	padding:2px 5px;
+	margin:0 5px 0 0;
+	background:#EEE;
+	color:#999;
+	border-radius:4px;
+	text-decoration:none;
+}
+
+/* RELATED PRODUCTS */
+.relatedProducts h3{
+	font-family:"Oswald", sans-serif;
+	font-size:2em;
+	font-weight:100;
+	margin:40px 0 20px;
+	border-bottom:#EEE solid 1px;
+}
+.relatedThumb{
+	float:left;
+	margin:0 20px 20px 0;
+	width:220px;
+}
+.relatedThumb h4{
+	margin:10px 10px 0;
+	font-family:"Oswald", sans-serif;
+	font-size:1.5em;
+	font-weight:normal;
+}
+.relatedThumb a{
+	margin:0 10px;
+	font-size:.75em;
+}
+
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+
+ 
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+

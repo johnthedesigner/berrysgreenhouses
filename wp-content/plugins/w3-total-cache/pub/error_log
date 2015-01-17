@@ -1,0 +1,2 @@
+[10-Jan-2015 09:24:41 UTC] PHP Warning:  gzinflate(): data error in /home2/berrysgr/public_html/wp-content/plugins/w3-total-cache/lib/W3/Minify.php on line 1145
+[10-Jan-2015 09:24:42 UTC] PHP Warning:  gzinflate(): data error in /home2/berrysgr/public_html/wp-content/plugins/w3-total-cache/lib/W3/Minify.php on line 1145

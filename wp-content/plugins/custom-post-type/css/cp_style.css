@@ -1,0 +1,17 @@
+/* Meta Box Table */
+.cpt_helper{ width: 100%; }
+.cpt_helper .cpt_table{ border: none; padding: 0; width: 100%; }
+.cpt_helper .cpt_table .cpt_block{ margin: 0 0 3em; border:#F00 solid 1px; }
+.cpt_helper .cpt_table th{ font-weight: normal; text-align: left; width: 20%; min-width: 100px; padding: 5px 0; vertical-align: top; }
+.cpt_helper .cpt_table label{ font-weight: bold; }
+.cpt_helper .cpt_table .description{ font-size: 10px; font-style: italic; }
+.cpt_helper .cpt_table td{ width: 60%; padding:1em 10px; }
+.cpt_helper .cpt_table .custom_post_text_field{width:90%;}
+.cpt_helper .cpt_table textarea{width:90%;min-height:80px;}
+.cpt_helper .cpt_table .wrap{ border:#999 solid 1px; padding:1em;}
+.cpt_helper .cpt_table .custom_repeatable .subfield{margin:1em 0;}
+.cpt_helper .cpt_table .custom_repeatable .pad{padding:0 1em 1em;}
+.cpt_helper .cpt_table .custom_repeatable .remove-wrap{text-align:right;padding:1em;}
+
+#ui-datepicker-div{background:#FFF; padding:10px;box-shadow:1px 1px 10px rgba(0,0,0,.3);}
+#ui-datepicker-div .ui-state-active{background:#DDD;}

@@ -1,0 +1,78 @@
+/*
+Theme Name: Berry's Theme
+*/
+body{
+	padding:0;
+	margin:0;
+	background:#EEE;
+}
+#page{
+	background:#FFF;
+}
+header{
+	border-bottom:#EEE solid 1px;
+}
+#branding{
+	width:1060px;
+	margin:0 auto;
+	padding:0;
+	height:120px;
+}
+#berrysLogo{
+	margin:0;
+	padding:0;
+}
+#berrysLogo img{
+	width:280px;
+	height:120px;
+}
+
+/* Social Nav */
+.menu-social-nav-menu-container{
+	background:#222;
+	padding:5px 0;
+	color:#666;
+	font-size:1em;
+}
+ul#menu-social-nav-menu{
+	list-style:none;
+	margin:0 auto;
+	padding:0;
+	text-align:right;
+	width:1060px;
+}
+ul#menu-social-nav-menu li{
+	display:inline;
+	margin:0;
+	padding:5px;
+	color:#666;
+}
+ul#menu-social-nav-menu li a{
+	color:#999;
+	text-decoration:none;
+}
+
+/* Main Nav */
+.menu-main-nav-menu-container{
+	background:#6B6;
+	padding:5px 0;
+	color:#FFF;
+	font-size:1.5em;
+}
+ul#menu-main-nav-menu{
+	list-style:none;
+	margin:0 auto;
+	padding:0;
+	text-align:left;
+	width:1060px;
+}
+ul#menu-main-nav-menu li{
+	display:inline;
+	margin:0;
+	padding:5px;
+	color:#FFF;
+}
+ul#menu-main-nav-menu li a{
+	color:#FFF;
+	text-decoration:none;
+}
