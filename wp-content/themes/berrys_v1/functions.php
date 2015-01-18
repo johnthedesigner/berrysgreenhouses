@@ -377,8 +377,246 @@ $stories->add_meta_box(
 	)
 );
 
+// SEASONS
+$seasons = new cpt_Post_Type('season', array(
+    'has_archive' => false,
+    'supports' => array( 'title' )
+));
+
+$seasons->add_meta_box( 
+	'Season Gallery', 
+	array(
+		array(
+			'name' 			=> 'gallery',
+			'description'	=> 'Add images to this season\'s gallery',
+			'type'			=> 'repeatwrap',
+			'contents'		=> array(
+				array(
+					'name'		=> 'image',
+					'label'		=> 'Product Image',
+					'type'		=> 'image'
+				)
+			)
+		)
+	)
+);
+
+// CATEGORIES
+$categories = new cpt_Post_Type('category', array(
+    'has_archive' => false,
+    'supports' => array( 'title' )
+));
+
+$categories->add_meta_box( 
+	'Select a Season',
+	array(
+		array(
+			'name' 			=> 'gallery',
+			'description'	=> 'To which season does this category apply?',
+			'type'			=> 'post_list',
+			'post_type'		=> 'season'
+		)
+	),
+	'normal',
+	'high'
+);
+
 };
 
+// UPLOAD FILES
 
+// PDF UPLOAD
+function wp_pdf_attachment($post) {
+ 
+    wp_nonce_field(plugin_basename(__FILE__), 'wp_pdf_attachment_nonce');
+     
+    $the_file = get_post_meta($post->ID,'wp_pdf_attachment',true);
+    $file_name = explode('/',$the_file['url']);
+    $file_name = $file_name[count($file_name) - 1];
+    
+    if( $the_file['url'] ){
+	    
+	    $html = '<p><b>File:</b> ' . $file_name . '</p>';
+	    $html .= '<p class="description">Upload a new PDF here</p>';
+	    $html .= '<input type="file" id="wp_pdf_attachment" name="wp_pdf_attachment" value="" size="25" />';
+
+    } else {
+	    
+	    $html = '<p class="description">Upload your PDF here.</p>';
+	    $html .= '<input type="file" id="wp_pdf_attachment" name="wp_pdf_attachment" value="" size="25" />';
+
+    };
+     
+    echo $html;
+ 
+} // end wp_pdf_attachment
+
+// SAVE PDF
+function save_pdf_meta_data($id) {
+ 
+    /* --- security verification --- */
+    if(!wp_verify_nonce($_POST['wp_pdf_attachment_nonce'], plugin_basename(__FILE__))) {
+      return $id;
+    } // end if
+       
+    if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+      return $id;
+    } // end if
+       
+    if('page' == $_POST['post_type']) {
+      if(!current_user_can('edit_page', $id)) {
+        return $id;
+      } // end if
+    } else {
+        if(!current_user_can('edit_page', $id)) {
+            return $id;
+        } // end if
+    } // end if
+    /* - end security verification - */
+     
+    // Make sure the file array isn't empty
+    if(!empty($_FILES['wp_pdf_attachment']['name'])) {
+         
+        // Setup the array of supported file types. In this case, it's just PDF.
+        $supported_types = array('application/pdf');
+         
+        // Get the file type of the upload
+        $arr_file_type = wp_check_filetype(basename($_FILES['wp_pdf_attachment']['name']));
+        $uploaded_type = $arr_file_type['type'];
+         
+        // Check if the type is supported. If not, throw an error.
+        if(in_array($uploaded_type, $supported_types)) {
+ 
+            // Use the WordPress API to upload the file
+            $upload = wp_upload_bits($_FILES['wp_pdf_attachment']['name'], null, file_get_contents($_FILES['wp_pdf_attachment']['tmp_name']));
+     
+            if(isset($upload['error']) && $upload['error'] != 0) {
+                wp_die('There was an error uploading your file. The error is: ' . $upload['error']);
+            } else {
+                add_post_meta($id, 'wp_pdf_attachment', $upload);
+                update_post_meta($id, 'wp_pdf_attachment', $upload);     
+            } // end if/else
+ 
+        } else {
+            wp_die("The file type that you've uploaded is not a PDF.");
+        } // end if/else
+         
+    } // end if
+     
+} // end save_custom_meta_data
+add_action('save_post', 'save_pdf_meta_data');
+
+// CSV UPLOAD
+function wp_csv_attachment($post) {
+ 
+    wp_nonce_field(plugin_basename(__FILE__), 'wp_csv_attachment_nonce');
+     
+    $the_file = get_post_meta($post->ID,'wp_csv_attachment',true);
+    $file_name = explode('/',$the_file['url']);
+    $file_name = $file_name[count($file_name) - 1];
+    
+    if( $the_file['url'] ){
+	    
+	    $html = '<p><b>File:</b> ' . $file_name . '</p>';
+	    $html .= '<p class="description">Upload a new CSV here</p>';
+	    $html .= '<input type="file" id="wp_csv_attachment" name="wp_csv_attachment" value="" size="25" />';
+
+    } else {
+	    
+	    $html = '<p class="description">Upload your CSV here.</p>';
+	    $html .= '<input type="file" id="wp_csv_attachment" name="wp_csv_attachment" value="" size="25" />';
+
+    };
+     
+    echo $html;
+ 
+} // end wp_csv_attachment
+
+// SAVE CSV
+function save_csv_meta_data($id) {
+ 
+    /* --- security verification --- */
+    if(!wp_verify_nonce($_POST['wp_csv_attachment_nonce'], plugin_basename(__FILE__))) {
+      return $id;
+    } // end if
+       
+    if(defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+      return $id;
+    } // end if
+       
+    if('page' == $_POST['post_type']) {
+      if(!current_user_can('edit_page', $id)) {
+        return $id;
+      } // end if
+    } else {
+        if(!current_user_can('edit_page', $id)) {
+            return $id;
+        } // end if
+    } // end if
+    /* - end security verification - */
+     
+    // Make sure the file array isn't empty
+    if(!empty($_FILES['wp_csv_attachment']['name'])) {
+         
+        // Setup the array of supported file types. In this case, it's just PDF.
+        $supported_types = array('text/csv');
+         
+        // Get the file type of the upload
+        $arr_file_type = wp_check_filetype(basename($_FILES['wp_csv_attachment']['name']));
+        $uploaded_type = $arr_file_type['type'];
+         
+        // Check if the type is supported. If not, throw an error.
+        if(in_array($uploaded_type, $supported_types)) {
+ 
+            // Use the WordPress API to upload the file
+            $upload = wp_upload_bits($_FILES['wp_csv_attachment']['name'], null, file_get_contents($_FILES['wp_csv_attachment']['tmp_name']));
+     
+            if(isset($upload['error']) && $upload['error'] != 0) {
+                wp_die('There was an error uploading your file. The error is: ' . $upload['error']);
+            } else {
+                add_post_meta($id, 'wp_csv_attachment', $upload);
+                update_post_meta($id, 'wp_csv_attachment', $upload);     
+            } // end if/else
+ 
+        } else {
+            wp_die("The file type that you've uploaded is not a CSV.");
+        } // end if/else
+         
+    } // end if
+     
+} // end save_custom_meta_data
+add_action('save_post', 'save_csv_meta_data');
+
+// MAKE FORMS ACCEPT FILE UPLOAD
+function update_edit_form() {
+    echo ' enctype="multipart/form-data"';
+} // end update_edit_form
+add_action('post_edit_form_tag', 'update_edit_form');
+
+// SETUP META BOXES
+function add_custom_meta_boxes() {
+ 
+    // Define the custom attachment for posts
+    add_meta_box(
+        'wp_pdf_attachment',
+        'Attach a PDF',
+        'wp_pdf_attachment',
+        'category',
+        'normal',
+        'high'
+    );
+     
+    // Define the custom attachment for pages
+    add_meta_box(
+        'wp_csv_attachment',
+        'Attach a CSV',
+        'wp_csv_attachment',
+        'category',
+        'normal',
+        'high'
+    );
+ 
+} // end add_custom_meta_boxes
+add_action('add_meta_boxes', 'add_custom_meta_boxes');
 
 
